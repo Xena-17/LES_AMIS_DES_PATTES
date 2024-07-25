@@ -1,10 +1,5 @@
 const express = require('express');
-const clientRoutes = require('./Routes/ClientRoutes');
-const categorieRoutes = require('./Routes/CategorieRoutes');
 const cors = require('cors');
-const destinationRoutes = require('./Routes/DestinationRoutes');
-const paiementRoutes = require('./Routes/PaiementRoutes');
-const reservationRoutes = require('./Routes/ReservationRoutes');
 const app = express();
 const port = 3001;
 // Précise que notre API fonctionne avec des fichiers JSON
