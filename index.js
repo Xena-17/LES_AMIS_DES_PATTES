@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = 3001;
+const userRoute= require('/Routes/UserRoutes'); 
+
 // Précise que notre API fonctionne avec des fichiers JSON
 app.use(express.json());
 // 5 Types de requêtes possible => GET, POST, PATCH, DELETE, PUT 
@@ -12,6 +14,9 @@ app.get('/hello', (request, result) => {
     // Envoie les donnée a l'utilisateur
     result.send('Hello World !!');
 })
+ // Ajoute les routes pour les utilisateurs
+app.use('/users', userRoute);
+
 
 
 // Premier parametre le port sur lequel le server va écouter les données
