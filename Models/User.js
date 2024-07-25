@@ -1,33 +1,33 @@
-const {Model, Datatypes} = require("sequelize");
-const Sequelize = require('./Config/sequelize.js');
+const {Model, DataTypes} = require("sequelize");
+const sequelize = require('../Config/Sequelize');
 class User extends Model {
 }
 
 User.init({
-      US_ID: {
-        type: DataTypes.VARCHAR(10),
+     US_ID: {
+        type: DataTypes.STRING,
         primaryKey: true,
         autoIncrement: true
 
     },
     US_Name: {
-        type: DataTypes.VARCHAR(255),
+        type: DataTypes.STRING,
         allowNull: false
     },
     US_First_Name: {
-        type: DataTypes.VARCHAR(255),
+        type: DataTypes.STRING,
         allowNull: false
     },
     US_Address: {
-        type: DataTypes.VARCHAR(255),
+        type: DataTypes.STRING,
         allowNull: false
     },
     US_Postcode: {
-        type: DataTypes.VARCHAR(5),
+        type: DataTypes.STRING,
         allowNull: false
     },
     US_City: {
-        type: DataTypes.VARCHAR(255),
+        type: DataTypes.STRING,
         allowNull: false,
     },
     US_Phone : {
@@ -37,22 +37,22 @@ User.init({
         unique: true,
     },
     US_Email: {
-        type: DataTypes.VARCHAR(255),
+        type: DataTypes.STRING,
         allowNull: false,
         unique: true
     },
     US_Role: {
-        type: DataTypes.VARCHAR(50),
+        type: DataTypes.STRING,
         unique: false,
         allowNull: true,
     }
    
-}),
+},
 {
     sequelize,
     modelName: "User",
     tableName: "Users",
     timestamps: false
-}
+})
 
 module.exports = User;

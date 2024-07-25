@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = 3001;
-const userRoute= require('/Routes/UserRoutes'); 
+const userRoute= require('./Routes/UserRoute'); 
 
 // Précise que notre API fonctionne avec des fichiers JSON
 app.use(express.json());
