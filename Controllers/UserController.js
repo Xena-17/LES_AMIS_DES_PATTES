@@ -18,7 +18,7 @@ class UserController {
            result.json(user);
         } catch (error) {
             result.status(500);
-            console.log(error);
+
             result.json({error : "Une erreur est survenue lors de la récupération de l'utilisateur"})
         }
     }
@@ -50,7 +50,7 @@ class UserController {
             result.json(user);
         } catch (error) {
             result.status(500);
-            console.log(error);
+ 
             result.json({error : "Une erreur est survenue lors de la suppresion de l'utilisateur"})
         }
     }
