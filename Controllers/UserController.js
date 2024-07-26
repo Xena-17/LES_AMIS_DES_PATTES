@@ -14,10 +14,11 @@ class UserController {
 
     async getUserByID(request, result){
         try {
-           const user = await UserService.getUserByID(request.params.UsersID)
+           const user = await UserService.getUserByID(request.params.UserID)
            result.json(user);
         } catch (error) {
             result.status(500);
+            console.log(error);
             result.json({error : "Une erreur est survenue lors de la récupération de l'utilisateur"})
         }
     }
@@ -28,6 +29,7 @@ class UserController {
             result.json(user);
         } catch (error) {
             result.status(500);
+            
             result.json({error : "Une erreur est survenue lors de l'ajout d'un utilisateur'"})
         }
     }
@@ -48,6 +50,7 @@ class UserController {
             result.json(user);
         } catch (error) {
             result.status(500);
+            console.log(error);
             result.json({error : "Une erreur est survenue lors de la suppresion de l'utilisateur"})
         }
     }

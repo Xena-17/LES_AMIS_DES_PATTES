@@ -5,7 +5,7 @@ class User extends Model {
 
 User.init({
      US_ID: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
 

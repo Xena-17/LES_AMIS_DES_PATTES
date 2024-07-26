@@ -1,5 +1,7 @@
 const User = require('../Models/User');
 
+
+
 class UserService {
 
     async getAllUser(){
@@ -7,15 +9,15 @@ class UserService {
     }
 
     async getUserByID(UserId){
-        return await User.findByPk(UserId, {include : 'reservations'});
+        return await User.findByPk(UserId);
     }
 
-    async addUser(User){
-        return await User.create(User);
+    async addUser(user){
+        return await User.create(user)
     }
 
-    async updateUser(id, User){
-        return await User.update(User, {
+    async updateUser(id, user){
+        return await User.update(user, {
             where : {
                 US_ID : id
             }
