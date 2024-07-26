@@ -57,4 +57,4 @@ class PetSittertController {
 
 }
 
-module.exports = new PetSitterController();
+module.exports = new PetSittertController();
