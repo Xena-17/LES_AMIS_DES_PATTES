@@ -4,8 +4,8 @@ class AnimalController {
 
     async getAllAnimal(request, result){
         try {
-            const Animals = await AnimalService.getAllAnimal();
-            result.json(Users);
+            const animal = await AnimalService.getAllAnimal();
+            result.json(animal);
         } catch (error) {
             result.status(500);
             result.json({error : "Une erreur est survenue lors de la récupération des animaux"})
