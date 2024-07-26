@@ -12,7 +12,7 @@ class AnimalService {
         return await Animal.findByPk(AnimalId);
     }
 
-    async addUser(Animal){
+    async addAnimal(animal){
         return await Animal.create(animal)
     }
 

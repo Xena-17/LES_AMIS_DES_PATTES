@@ -8,6 +8,7 @@ class AnimalController {
             result.json(animal);
         } catch (error) {
             result.status(500);
+
             result.json({error : "Une erreur est survenue lors de la récupération des animaux"})
         }
     }
@@ -24,12 +25,12 @@ class AnimalController {
 
     async addAnimal(request, result){
         try {
-            const animal = await UserService.addAnimal(request.body);
+            const animal = await AnimalService.addAnimal(request.body)
             result.json(animal);
         } catch (error) {
             result.status(500);
-            
-            result.json({error : "Une erreur est survenue lors de l'ajout d'un animal'"})
+            console.log(error)
+            result.json({error : "Une erreur est survenue lors de l'ajout d'un animal"})
         }
     }
 
@@ -45,7 +46,7 @@ class AnimalController {
 
     async deleteAnimal(request, result){
         try {
-            const animal = await UserAnimal.deleteAnimal(request.params.id);
+            const animal = await AnimalService.deleteAnimal(request.params.id);
             result.json(animal);
         } catch (error) {
             result.status(500);
