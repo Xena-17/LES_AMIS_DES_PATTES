@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = 3001;
-const userRoute= require('./Routes/UserRoute'); 
+const userRoute= require('./Routes/UserRoute');
+const animalRoute = require('./Routes/AnimalRoute'); 
 
 // Précise que notre API fonctionne avec des fichiers JSON
 app.use(express.json());
@@ -16,6 +17,7 @@ app.get('/hello', (request, result) => {
 })
  // Ajoute les routes pour les utilisateurs
 app.use('/users', userRoute);
+app.use('/animals', animalRoute);
 
 
 
