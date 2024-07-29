@@ -5,6 +5,7 @@ const port = 3001;
 const userRoute= require('./Routes/UserRoute');
 const animalRoute = require('./Routes/AnimalRoute'); 
 const petsitterRoute = require('./Routes/PetSitterRoute'); 
+const paymentRoute = require('./Routes/PaymentRoute');
 
 // Précise que notre API fonctionne avec des fichiers JSON
 app.use(express.json());
@@ -20,6 +21,8 @@ app.get('/hello', (request, result) => {
 app.use('/users', userRoute);
 app.use('/animals', animalRoute);
 app.use('/petsitters', petsitterRoute);
+app.use('/payments', paymentRoute);
+
 
 
 
