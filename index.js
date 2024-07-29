@@ -6,6 +6,7 @@ const userRoute= require('./Routes/UserRoute');
 const animalRoute = require('./Routes/AnimalRoute'); 
 const petsitterRoute = require('./Routes/PetSitterRoute'); 
 const paymentRoute = require('./Routes/PaymentRoute');
+const reservationRoute = require('./Routes/ReservationRoute');
 
 // Précise que notre API fonctionne avec des fichiers JSON
 app.use(express.json());
@@ -22,6 +23,7 @@ app.use('/users', userRoute);
 app.use('/animals', animalRoute);
 app.use('/petsitters', petsitterRoute);
 app.use('/payments', paymentRoute);
+app.use('/reservations', reservationRoute);
 
 
 
