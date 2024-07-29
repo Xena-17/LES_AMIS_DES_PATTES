@@ -10,22 +10,38 @@ Reservation.init({
         autoIncrement: true
 
     },
-    PS_Description: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    PS_Experience: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    PS_Hourly_Rate: {
-        type: DataTypes.DECIMAL,
-        allowNull: false
-    },
-    PS_Availability: {
+    RE_Start_Date: {
         type: DataTypes.DATE,
         allowNull: false
     },
+    RE_End_Date: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    RE_Total_Price: {
+        type: DataTypes.DECIMAL,
+        allowNull: false
+    },
+    RE_Status: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    PA_ID : {
+        type: DataTypes.INTEGER,
+        ForeignKey : true,
+        references: {
+            model: 'PA_ID'
+        }
+    },
+    PS_ID : {
+        type: DataTypes.INTEGER,
+        ForeignKey : true,
+        references: {
+            model: 'Pet_Sitters',
+            key: 'PS_ID'
+        }
+    },
+
     US_ID : {
         type: DataTypes.INTEGER,
         ForeignKey : true,
@@ -38,9 +54,9 @@ Reservation.init({
 },
 {
     sequelize,
-    modelName: "PetSittter",
-    tableName: "Pet_Sitters",
+    modelName: "Reservation",
+    tableName: "Reservations",
     timestamps: false
 })
 
-module.exports = PetSitter;
+module.exports = Reservation;

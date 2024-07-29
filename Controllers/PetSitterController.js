@@ -4,8 +4,8 @@ class PetSittertController {
 
     async getAllPetSitter(request, result){
         try {
-            const petsitter = await PetSitterService.getAllPetSitter();
-            result.json(petsitter);
+            const petSitter = await PetSitterService.getAllPetSitter();
+            result.json(petSitter);
         } catch (error) {
             result.status(500);
 
@@ -15,8 +15,8 @@ class PetSittertController {
 
     async getPetSitterByID(request, result){
         try {
-           const petsitter = await PetSitterService.getPetSitterByID(request.params.PetSitterID)
-           result.json(petsitter);
+           const petSitter = await PetSitterService.getPetSitterByID(request.params.PetSitterID)
+           result.json(petSitter);
         } catch (error) {
             result.status(500);
             result.json({error : "Une erreur est survenue lors de la récupération du Pet Sitter"})
@@ -25,10 +25,11 @@ class PetSittertController {
 
     async addPetSitter(request, result){
         try {
-            const petsitter = await PetSitterService.addPetSitterl(request.body)
-            result.json(petsitter);
+            const petSitter = await PetSitterService.addPetSitter(request.body)
+            result.json(petSitter);
         } catch (error) {
             result.status(500);
+            console.log(error);
  
             result.json({error : "Une erreur est survenue lors de l'ajout d'un Pet Sitter"})
         }
@@ -36,8 +37,8 @@ class PetSittertController {
 
     async updatePetSitter(request, result){
         try {
-            const petsitter = await PetSitterService.updatePetSitter(request.params.id, request.body)
-            result.json(petsitter);
+            const petSitter = await PetSitterService.updatePetSitter(request.params.id, request.body)
+            result.json(petSitter);
         } catch (error) {
             result.status(500);
             result.json({error : "Une erreur est survenue lors de la modification du Pet Sitter"})
@@ -46,8 +47,8 @@ class PetSittertController {
 
     async deletePetSitter(request, result){
         try {
-            const animal = await PetSitterService.deletePetSitter(request.params.id);
-            result.json(petsitter);
+            const petSitter = await PetSitterService.deletePetSitter(request.params.id);
+            result.json(petSitter);
         } catch (error) {
             result.status(500);
   
