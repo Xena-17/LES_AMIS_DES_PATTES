@@ -25,17 +25,10 @@ Payment.init({
     PA_Status: {
         type: DataTypes.STRING,
         allowNull: false
-    },
-    US_ID : {
-        type: DataTypes.INTEGER,
-        ForeignKey : true,
-        references: {
-            model: 'Users',
-            key: 'US_ID'
-        }
-    },
-   
+    }
+ 
 },
+
 {
     sequelize,
     modelName: "Payment",
