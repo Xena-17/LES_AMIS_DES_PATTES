@@ -35,6 +35,7 @@ class UserService {
         }
         return user;
         
+    }
 }
 
 module.exports = new UserService();
