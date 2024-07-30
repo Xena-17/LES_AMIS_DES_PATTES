@@ -9,5 +9,6 @@ router.get("/:UserID", (request, result) => {UserController.getUserByID(request,
 router.post("/", (request, result) =>{UserController.addUser(request,result)});
 router.patch("/:id", (request, result) => {UserController.updateUser(request,result)});
 router.delete("/:id", (request, result) => {UserController.deleteUser(request,result)});
+router.post('/login', (request, result) => {UserController.login(request, result)});
 
 module.exports = router;

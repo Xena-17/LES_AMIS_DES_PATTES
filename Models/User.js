@@ -1,6 +1,11 @@
 const {Model, DataTypes} = require("sequelize");
 const sequelize = require('../Config/Sequelize');
+const bcrypt = require ('bcrypt');
+
 class User extends Model {
+        async validatePassword(password){
+            return await bcrypt.compare(password, this.US_Password);
+        }
 }
 
 User.init({
@@ -39,7 +44,12 @@ User.init({
     US_Email: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
+        unique: true,
+    },
+    US_Password: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+  
     },
     US_Role: {
         type: DataTypes.STRING,
@@ -47,12 +57,22 @@ User.init({
         allowNull: true,
     }
    
-},
-{
+},{
     sequelize,
     modelName: "User",
     tableName: "Users",
-    timestamps: false
+    timestamps: false,
+    hooks :{
+        beforeCreate: async (user) => {
+            user.US_Password = await bcrypt.hash(user.US_Password,10)
+        },
+        beforeUpdate : async (user) => {
+            console.log(user.US_Password);
+            if (user.changed('US_Password')) {
+                user.US_Password = await bcrypt.hash(user.US_Password,10);
+            }
+        }
+    }
 })
 
 module.exports = User;

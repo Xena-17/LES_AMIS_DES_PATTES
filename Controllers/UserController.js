@@ -56,5 +56,16 @@ class UserController {
     }
 
 }
+    async login(request, result) {
+    try {
+        // Destructuration du password
+        const {email, password} = request.body;
+        const user = await UserService.login(email, password);
+        result.json(user);
+    } catch (error) {
+        result.status(500);
+        result.json({error : "Une erreur est survenue lors de la connexion de l'utilisateur"});
+    }
+}
 
 module.exports = new UserController();

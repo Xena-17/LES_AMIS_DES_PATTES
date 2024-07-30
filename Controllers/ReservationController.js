@@ -29,7 +29,7 @@ class ReservationController {
             result.json(reservation);
         } catch (error) {
             result.status(500);
-            
+            console.log(error);
             result.json({error : "Une erreur est survenue lors de l'ajout d'une réservation"})
         }
     }
