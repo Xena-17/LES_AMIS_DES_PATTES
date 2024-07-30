@@ -21,9 +21,9 @@ app.get('/hello', (request, result) => {
  // Ajoute les routes pour les utilisateurs
 app.use('/users', userRoute);
 app.use('/animals', animalRoute);
-app.use('/petsitters', petsitterRoute);
-app.use('/payments', paymentRoute);
-app.use('/reservations', reservationRoute);
+app.use('/petsitters',AuthenticateController.authenticateToken, petsitterRoute);
+app.use('/payments',AuthenticateController.authenticateToken, paymentRoute);
+app.use('/reservations',AuthenticateController.authenticateToken, reservationRoute);
 
 
 

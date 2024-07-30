@@ -1,4 +1,5 @@
 const UserService = require('../Services/UserService');
+const AuthenticateController = require('./AuthenticateController');
 
 class UserController {
 
@@ -20,6 +21,18 @@ class UserController {
             result.status(500);
 
             result.json({error : "Une erreur est survenue lors de la récupération de l'utilisateur"})
+        }
+    }
+
+    async login(request, result){
+        try {
+            // Destructuration du password
+            const {email, password} = request.body;
+            const user = await UserService.login(email, password);
+            result.json({token : AuthenticateController.generateToken(user)});
+        } catch (error) {
+            result.status(500);
+            result.json({error : "Email ou mot de passe incorrect"})
         }
     }
 
