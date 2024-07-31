@@ -30,7 +30,7 @@ class UserService {
     }
     async login(email,password){
         const user = await User.findOne({where : {US_Email : email}});
-        if (!user || !await User.validatePassword(password)){
+        if (!user || !await user.validatePassword(password)){
             throw new Error('Email ou password incorrect');
         }
         return user;
