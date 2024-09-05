@@ -63,10 +63,15 @@ User.init({
     tableName: "Users",
     timestamps: false,
     hooks :{
+        // Hook qui s'exécute avant la création d'un nouvel utilisateur
         beforeCreate: async (user) => {
+             // Hash le mot de passe avec bcrypt avant de l'enregistrer dans la base de données
             user.US_Password = await bcrypt.hash(user.US_Password,10)
         },
+        // Hook qui s'exécute avant la mise à jour d'un utilisateur
         beforeUpdate : async (user) => {
+            // Si le mot de passe a été modifié, il est hashé avec bcrypt avant de l'enregistrer 
+            // dans la base de données  (sinon rien ne change)
             console.log(user.US_Password);
             if (user.changed('US_Password')) {
                 user.US_Password = await bcrypt.hash(user.US_Password,10);
