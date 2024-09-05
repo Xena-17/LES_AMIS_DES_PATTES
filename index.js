@@ -16,7 +16,7 @@ app.use(cors());
 // Premier parametre est la route pour acceder aux données
 // Deuxieme parametre est la fonction fléchée qui va faire le traitement, prend toujours deux parametres (request, result)
 app.get('/hello', (request, result) => {
-    // Envoie les donnée a l'utilisateur
+    // Envoie les données a l'utilisateur
     result.send('Hello World !!');
 })
  // Ajoute les routes pour les utilisateurs
