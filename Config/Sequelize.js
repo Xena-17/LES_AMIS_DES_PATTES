@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
-const config = require('./config.json');
+const path = require('path');
+const config = require(path.join(__dirname, 'config.json'));
+
 
 // Crée la connexion a notre base de données 
 // Équivalent à PDO en PHP
